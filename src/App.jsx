@@ -1,17 +1,17 @@
-import styled from "styled-components";
+// import styled from "styled-components";
 
-const Button = styled.button`
-background-color:black;
-color:white;
-padding:10px;`;
+import { useState } from "react";
+import StartGame from "./components/StartGame";
+import GamePlay from "./components/GamePlay";
+
 function App() {
-  
+  const [isGameStarted, setIsGameStarted] = useState(false);
 
-  return (
-    <>
-    <Button>Button tyr it out</Button>
-    </>
-  )
+  const toggleGamePlay = () => {
+    setIsGameStarted((prev) => !prev);
+  };
+
+  return <>{isGameStarted ? <GamePlay /> : <StartGame  toggle={toggleGamePlay}/>}</>;
 }
 
-export default App
+export default App;
